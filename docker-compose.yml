@@ -1,0 +1,10 @@
+version: '1.0'
+
+services:
+  discord-bot:
+    build: .
+    container_name: mineshaft_discord_bot
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+    working_dir: /app

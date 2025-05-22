@@ -1,0 +1,19 @@
+{
+  "name": "mineshaftcal",
+  "version": "1.4.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Matian",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "discord.js": "^14.19.3",
+    "ical-expander": "^3.1.0",
+    "node-ical": "^0.20.1",
+    "rrule": "^2.8.1",
+    "webdav": "^5.8.0"
+  }
+}
