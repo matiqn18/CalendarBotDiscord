@@ -37,6 +37,10 @@ const rest = new REST({ version: '10' }).setToken(DISCORD_TOKEN);
   }
 })();
 
+function toLocal(dateUTC) {
+  return new Date(dateUTC.toLocaleString('en-US', { timeZone: 'Europe/Warsaw' }));
+}
+
 // Initialize Discord client
 const client = new Client({
   intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent],
@@ -64,7 +68,11 @@ async function loadEvents() {
 
           // Handle recurring events (RRULE)
           if (ev.rrule) {
-            const occurrences = ev.rrule.between(new Date(), new Date(Date.now() + 1000 * 60 * 60 * 24 * 14), true);
+            const rule = new RRule({
+              ...ev.rrule.origOptions,
+              dtstart: ev.start
+            });
+            const occurrences = rule.between(new Date(), new Date(Date.now() + 1000 * 60 * 60 * 24 * 14), true);
 
             for (const date of occurrences) {
               events.push({
