@@ -54,18 +54,18 @@ To run the bot using Docker:
 Create a `.env` file in the root of the project with the following variables:
    
 ### WebDAV (ownCloud/Nextcloud) configuration
-WEBDAV_URL= # Full URL to your WebDAV calendar directory (e.g., https://cloud.example.com/remote.php/dav/calendars/username/)
-WEBDAV_USERNAME= # Username for WebDAV access
-WEBDAV_PASSWORD= # Password for WebDAV access
+- WEBDAV_URL= # Full URL to your WebDAV calendar directory (e.g., https://cloud.example.com/remote.php/dav/calendars/username/)
+- WEBDAV_USERNAME= # Username for WebDAV access
+- WEBDAV_PASSWORD= # Password for WebDAV access
 
 ### Discord Bot configuration
-DISCORD_TOKEN= # Your Discord bot token
-CHANNEL_ID= # ID of the Discord channel where reminders will be sent
+- DISCORD_TOKEN= # Your Discord bot token
+- CHANNEL_ID= # ID of the Discord channel where reminders will be sent
 
 ### Forgejo API configuration (optional, for /token command)
-FORGEJO_API= # Base URL of your Forgejo instance API (e.g., https://forgejo.example.com/api/v1)
-FORGEJO_ORG= # Forgejo organization name
-FORGEJO_TOKEN= # Personal access token with permission to get runner registration tokens
+- FORGEJO_API= # Base URL of your Forgejo instance API (e.g., https://forgejo.example.com/api/v1)
+- FORGEJO_ORG= # Forgejo organization name
+- FORGEJO_TOKEN= # Personal access token with permission to get runner registration tokens
 
 ---
 
