@@ -221,15 +221,20 @@ async function dayBeforeAndMorningReminder(testdate = null) {
   const now = testdate || new Date();
   now.setSeconds(0, 0);
 
+  const tomorrow = new Date(now);
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  tomorrow.setSeconds(0, 0);
+
+    
   for (const event of allEvents) {
     const start = event.start;
 
     // Reminder at 20:00 the day before the event
     if (
       now.getHours() === 20 &&
-      now.getDate() === start.getDate() - 1 &&
-      now.getMonth() === start.getMonth() &&
-      now.getFullYear() === start.getFullYear()
+      tomorrow.getDate() === start.getDate() &&
+      tomorrow.getMonth() === start.getMonth() &&
+      tomorrow.getFullYear() === start.getFullYear()
     ) {
       channel.send(`📅 Reminder 📅 \n Tomorrow ${formatDate(start)} there is an event: **${event.summary}** \n <@&1375053450613624903>`);
     }
@@ -404,3 +409,4 @@ client.once('ready', () => {
 
 // Log in to Discord
 client.login(DISCORD_TOKEN);
+
